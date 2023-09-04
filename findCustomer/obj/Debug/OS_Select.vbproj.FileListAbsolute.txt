@@ -1,0 +1,21 @@
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\bin\Debug\OS_Select.exe
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\bin\Debug\OS_Select.pdb
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\bin\Debug\OS_Select.xml
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.Form1.resources
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.Resources.resources
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.vbproj.GenerateResource.Cache
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.exe
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.xml
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.pdb
+T:\pics\Software\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.vbprojResolveAssemblyReference.cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\bin\Debug\OS_Select.exe
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\bin\Debug\OS_Select.pdb
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\bin\Debug\OS_Select.xml
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.vbprojResolveAssemblyReference.cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.Form1.resources
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.Resources.resources
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.vbproj.GenerateResource.Cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.vbproj.CoreCompileInputs.cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.exe
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.xml
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Debug\OS_Select.pdb

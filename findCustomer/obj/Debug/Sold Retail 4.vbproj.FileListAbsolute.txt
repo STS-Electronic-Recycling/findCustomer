@@ -1,0 +1,12 @@
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\bin\Debug\Sold Retail 4.exe.config
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\bin\Debug\Sold Retail 4.exe
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\bin\Debug\Sold Retail 4.pdb
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\bin\Debug\Sold Retail 4.xml
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold Retail 4.vbprojAssemblyReference.cache
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold_Retail_4.frmSoldRetail.resources
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold_Retail_4.Resources.resources
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold Retail 4.vbproj.GenerateResource.cache
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold Retail 4.vbproj.CoreCompileInputs.cache
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold Retail 4.exe
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold Retail 4.xml
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Sold Retail 4\Sold Retail 4\obj\Debug\Sold Retail 4.pdb

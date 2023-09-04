@@ -1,0 +1,11 @@
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\bin\Release\OS_Select.exe
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\bin\Release\OS_Select.pdb
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\bin\Release\OS_Select.xml
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.vbprojResolveAssemblyReference.cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.Form1.resources
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.Resources.resources
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.vbproj.GenerateResource.Cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.vbproj.CoreCompileInputs.cache
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.exe
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.xml
+D:\Audit Apps\OS_Select\Remove_Serial_Incoming_Audit\obj\Release\OS_Select.pdb

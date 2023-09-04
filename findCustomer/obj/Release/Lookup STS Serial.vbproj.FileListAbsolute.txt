@@ -1,0 +1,12 @@
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\bin\Release\Lookup STS Serial.exe.config
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\bin\Release\Lookup STS Serial.exe
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\bin\Release\Lookup STS Serial.pdb
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\bin\Release\Lookup STS Serial.xml
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup STS Serial.vbprojAssemblyReference.cache
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup_STS_Serial.frmLookupSTSSerial.resources
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup_STS_Serial.Resources.resources
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup STS Serial.vbproj.GenerateResource.cache
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup STS Serial.vbproj.CoreCompileInputs.cache
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup STS Serial.exe
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup STS Serial.xml
+D:\OneDrive\Update Audit Programs\TO-DO Programs\Lookup STS Serial\Lookup STS Serial\obj\Release\Lookup STS Serial.pdb
