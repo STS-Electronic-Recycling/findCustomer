@@ -1,13 +1,20 @@
-﻿Imports System.ComponentModel
-Imports System.Data.SqlClient
-Imports System.Management
+﻿Imports System.Net
+Imports System.Web.Script.Serialization
+Imports Newtonsoft.Json
+Imports System.IO
+Imports System.Text
+Imports System.Net.Http
+Imports System.ServiceModel
 
 Public Class frmFindCustomer
-    Private strUser As String = "Admin"
-    Private strPassword As String = "P@ssword123"
     Private strTitle As String = "SOLD RETAIL - "
     Public strLocation As String
-    Public strConn = "Data Source=SQLServer\SQLExpress;Connection Timeout=400;Persist Security Info=True;User ID=" & strUser & ";Password=" & strPassword & ";"
+    Public request As WebRequest
+    Public strToken As String
+    Public strSourceID As String
+    Public strPhone As String
+    Dim strAddress As String
+    Dim strName As String
 
     Protected Overrides Function ProcessCmdKey(ByRef msg As System.Windows.Forms.Message,
                                            ByVal keyData As System.Windows.Forms.Keys) _
@@ -21,6 +28,42 @@ Public Class frmFindCustomer
         Return MyBase.ProcessCmdKey(msg, keyData)
     End Function
 
+    Public Sub getSugarToken()
+        Try
+            Dim data = Encoding.UTF8.GetBytes("{""grant_type"": ""password"", ""client_id"": ""sugar"", ""client_secret"": """", ""username"": ""TMorris"", ""password"": ""ktehT54321"", ""platform"": ""customer""}")
+            Dim json = SendRequest(New Uri("https://stsrecycling.sugarondemand.com/rest/v10/oauth2/token"), data, "application/json", "POST")
+
+            Dim serializer As New JavaScriptSerializer()
+            Dim result As Object = serializer.DeserializeObject(json)
+
+            strToken = result("access_token")
+        Catch ex As Exception
+            MsgBox(ex.InnerException.Message)
+        End Try
+    End Sub
+
+    Private Function SendRequest(uri As Uri, jsonDataBytes As Byte(), contentType As String, method As String) As String
+        Dim response As String
+
+        request = WebRequest.Create(uri)
+        request.ContentLength = jsonDataBytes.Length
+        request.ContentType = contentType
+        request.Method = method
+
+        Using requestStream = request.GetRequestStream
+            requestStream.Write(jsonDataBytes, 0, jsonDataBytes.Length)
+            requestStream.Close()
+
+            Using responseStream = request.GetResponse.GetResponseStream
+                Using reader As New StreamReader(responseStream)
+                    response = reader.ReadToEnd()
+                End Using
+            End Using
+        End Using
+
+        Return response
+    End Function
+
     Private Sub Form_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
             SendKeys.Send("{TAB}")
@@ -29,74 +72,100 @@ Public Class frmFindCustomer
         End If
     End Sub
 
+    Private Sub getCustomerInfo()
+        Try
+            getSugarToken()
+
+            Dim SugarURI As Uri = New Uri("https://stsrecycling.sugarondemand.com/rest/v10/Accounts/" & strSourceID)
+
+            request = WebRequest.Create(SugarURI)
+
+            With request
+                .ContentType = "application/json"
+                .Method = "GET"
+                .Headers.Add("Authorization", "Bearer " & strToken)
+            End With
+
+            Dim result = request.GetResponse()
+            Dim responsedata As Stream = result.GetResponseStream
+            Dim responsereader As StreamReader = New StreamReader(responsedata)
+            Dim xResponse = responsereader.ReadToEnd
+
+            Dim serializer As New JavaScriptSerializer()
+            Dim jsonResult As Object = serializer.DeserializeObject(xResponse)
+
+            With jsonResult
+                strPhone = .item("phone_office")
+                strAddress = .item("shipping_address_street")
+                strName = .item("email1")
+            End With
+        Catch ex As Exception
+            MsgBox(ex.InnerException.Message)
+        End Try
+    End Sub
+
     Private Sub findResults()
-        Dim Conn As New SqlConnection(strConn)
-        Dim cmd As New SqlCommand()
-        Dim cmd2 As New SqlCommand()
-        Dim nFound As String = ""
-        Dim skuSearch, strFormFactor As String
+        Dim strSearchBy As String
 
-        On Error GoTo err_Handler
-
-        If txtSearchFor.Text = "" Then Exit Sub
+        If txtSearchFor.Text = "" Or Len(txtSearchFor.Text) < 5 Then Exit Sub
 
         Dim intCount As Int16
-
-        '        lstResults.Clear()
-
-        If lstResults.Items.Count > 0 Then
-            For intCount = lstResults.Items.Count - 1 To 0 Step -1
-                lstResults.Items.RemoveAt(intCount)
-            Next intCount
-        End If
-
-        If Val(txtSearchFor.Text) > 0 And Len(txtSearchFor.Text) > 2 Then
-            skuSearch = "SELECT * FROM [Incoming_Audit].[dbo].[Customers] WHERE [Company ID] Like '" + txtSearchFor.Text + "%' order by 'Company Name';"
-        ElseIf Len(txtSearchFor.Text) > 3 Then
-            skuSearch = "SELECT * FROM [Incoming_Audit].[dbo].[Customers] WHERE [Company Name] Like '%" + txtSearchFor.Text + "%' order by 'Company Name';"
-        Else
-            Exit Sub
-        End If
-
-        Conn.Open()
-
-        cmd = New SqlCommand(skuSearch, Conn)
-
-        Dim reader As SqlDataReader = cmd.ExecuteReader()
-        Dim lst As ListViewItem
-
         Dim strResults(4) As String
 
-        Do While reader.Read()
-            strResults(0) = reader("Company ID").ToString
-            strResults(1) = reader("Company Name").ToString
-            strResults(2) = reader("Company Address").ToString
-            strResults(3) = reader("Last Name").ToString & ", " & reader("First Name").ToString
-            strResults(4) = reader("Phone #").ToString
+        Me.Cursor = Cursors.WaitCursor
 
-            lst = New ListViewItem(strResults)
+        Try
+            If lstResults.Items.Count > 0 Then
+                For intCount = lstResults.Items.Count - 1 To 0 Step -1
+                    lstResults.Items.RemoveAt(intCount)
+                Next intCount
+            End If
+            '66781 85020
+            If Val(txtSearchFor.Text) > 0 And Len(txtSearchFor.Text) > 2 Then
+                strSearchBy = "https://api.corp.stsrecycle.com/business-development/customer-accounts?customerId=" + txtSearchFor.Text
+            ElseIf Len(txtSearchFor.Text) > 3 Then
+                strSearchBy = "https://api.corp.stsrecycle.com/business-development/customer-accounts?organizationName=" + txtSearchFor.Text
+            Else
+                Exit Sub
+            End If
 
-            lstResults.Items.Add(lst)
-        Loop
+            Dim client As New WebClient()
+            Dim json As String = client.DownloadString(strSearchBy)
 
-        Conn.Close()
+            Dim serializer As New JavaScriptSerializer()
+            Dim result As Object = serializer.DeserializeObject(json)
 
-        Exit Sub
-err_Handler:
-        If Err.Number = 5 Then
-            'MsgBox("Invalid STS Serial #...please verify number!", vbOKOnly, strTitle)
+            For i = 0 To result.length - 1
+                Dim data As Dictionary(Of String, Object) = CType(result(i), Dictionary(Of String, Object))
 
-            'txtInternalSerial.SelectAll()
-            'txtInternalSerial.Focus()
+                strResults(0) = data.Item("customerId")
 
-            Conn.Close()
+                Dim orgData As Dictionary(Of String, Object) = CType(data.Item("organization"), Dictionary(Of String, Object))
 
-            Exit Sub
-        End If
+                strResults(1) = orgData.Item("name")
 
-        MsgBox("Error with " & strTitle & " & getManufacturer:" & vbCrLf & vbCrLf & Err.Description)
+                data = data.Item("organization")
 
-        Resume Next
+                strSourceID = data.Item("sourceId")
+
+                getCustomerInfo()
+
+                strResults(2) = strAddress
+                strResults(3) = strName
+                strResults(4) = strPhone
+
+                Dim lst As ListViewItem
+
+                lst = New ListViewItem(strResults)
+
+                lstResults.Items.Add(lst)
+            Next i
+
+            Me.Cursor = Cursors.Default
+        Catch ex As Exception
+            Stop
+            Me.Cursor = Cursors.Default
+        End Try
     End Sub
 
     Private Sub txtSearchFor_KeyUp(sender As Object, e As KeyEventArgs) Handles txtSearchFor.KeyUp
@@ -110,11 +179,7 @@ err_Handler:
         lstResults.Columns.Add("ID", 60)
         lstResults.Columns.Add("Name", 150)
         lstResults.Columns.Add("Address", 150)
-        lstResults.Columns.Add("Contact", 130)
+        lstResults.Columns.Add("E-Mail", 130)
         lstResults.Columns.Add("Contact #", 110)
-    End Sub
-
-    Private Sub txtSearchFor_TextChanged(sender As Object, e As EventArgs) Handles txtSearchFor.TextChanged
-
     End Sub
 End Class

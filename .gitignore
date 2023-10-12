@@ -1,0 +1,15 @@
+**\bin\*.*
+/findCustomer/bin/Debug/Find Customer ID.exe
+/findCustomer/bin/Debug/Find Customer ID.exe.config
+/findCustomer/bin/Debug/Find Customer ID.pdb
+/findCustomer/bin/Release/Find Customer ID.exe
+/findCustomer/bin/Release/Find Customer ID.exe.config
+/findCustomer/bin/Release/Find Customer ID.pdb
+/findCustomer/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/findCustomer/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/findCustomer/obj/Debug/Find Customer ID.exe
+/findCustomer/obj/Debug/Find Customer ID.pdb
+/findCustomer/obj/Release/DesignTimeResolveAssemblyReferences.cache
+/findCustomer/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+/findCustomer/obj/Release/Find Customer ID.exe
+/findCustomer/obj/Release/Find Customer ID.pdb
